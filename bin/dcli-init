@@ -24,7 +24,6 @@ create()
 // console.log('rootName', process.cwd(), rootName)
 
 function create() {
-    let
     try {
         // 检查文件名
         // 创建文件
