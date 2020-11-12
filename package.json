@@ -1,0 +1,23 @@
+{
+  "name": "dcli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "dcli": "bin/dcli",
+    "dcli-init": "bin/dcli-init"
+  },
+  "scripts": {
+    "dcli": "bin/dcli",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "download-git-repo": "^3.0.2",
+    "inquire": "^0.4.8"
+  }
+}

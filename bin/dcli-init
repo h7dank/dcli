@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const path = require('path')
+const fs = require('fs')
+const inquire = require('inquire')
+
+program.usage("<project-name>").parse(process.argv)
+
+let projectName = program.args[0]
+
+console.log(projectName)
+
+if (!projectName) {
+    program.help()
+    return
+}
+
+let rootName = path.basename(process.cwd())
+
+console.log('rootName', process.cwd(), rootName)
+
+
+
+
+
