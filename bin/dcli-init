@@ -19,6 +19,8 @@ if (!projectName) {
 
 let rootName = path.basename(process.cwd())
 
+create()
+
 // console.log('rootName', process.cwd(), rootName)
 
 function create() {
@@ -43,7 +45,7 @@ function create() {
         inquire.prompt(config).then(data => {
             const { select } = data
             console.log(select)
-            download(rootName, `https://github.com/h7dank/d-es6.git`)
+            downloadTMP(rootName, `https://github.com/h7dank/d-es6.git`)
         })
     } catch (e) {
         console.error('创建失败', e.message)
@@ -51,7 +53,7 @@ function create() {
 }
 
 
-function download(target, url) {
+function downloadTMP(target, url) {
     download(`download: ${url}`, target, { clone: true }, err => {
         if (err) {
             console.log('err', err)
