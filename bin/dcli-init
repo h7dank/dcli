@@ -4,6 +4,7 @@ const program = require('commander')
 const path = require('path')
 const fs = require('fs')
 const inquire = require('inquire')
+const download = require('download-git-repo')
 
 program.usage("<project-name>").parse(process.argv)
 
@@ -18,8 +19,45 @@ if (!projectName) {
 
 let rootName = path.basename(process.cwd())
 
-console.log('rootName', process.cwd(), rootName)
+// console.log('rootName', process.cwd(), rootName)
 
+function create() {
+    let
+    try {
+        // 检查文件名
+        // 创建文件
+        fs.mkdirSync(projectName)
+        // 下载模板
+        const config = {
+            type: 'list',
+            message: '选择创建项目类型',
+            name: 'select',
+            choices: [new inquirer.Separator('模板类型'), {
+                name: 'vue',
+                value: 'vue'
+            }, {
+                name: 'es6',
+                value: 'es6'
+            }]
+        }
+        inquire.prompt(config).then(data => {
+            const { select } = data
+            console.log(select)
+            download(rootName, `https://github.com/h7dank/d-es6.git`)
+        })
+    } catch (e) {
+        console.error('创建失败', e.message)
+    }
+}
+
+
+function download(target, url) {
+    download(`download: ${url}`, target, { clone: true }, err => {
+        if (err) {
+            console.log('err', err)
+        }
+    })
+}
 
 
 
